@@ -1,56 +1,43 @@
-const flightPath = {
-  curviness: 1.5,
-  autoRotate: true,
-  values: [
-    {x: (window.innerWidth/8), y: -20},
-    {x: (window.innerWidth/8)*2, y:10},
-    {x: (window.innerWidth/8)*3, y: 100},
-    {x: (window.innerWidth/8)*4, y: -100},
-    {x: (window.innerWidth/8)*3, y: -50},
-    {x: (window.innerWidth/8)*5, y: 100},
-    {x: (window.innerWidth/8)*7, y: 0},
-    {x: window.innerWidth + 150, y: 100}
-  ]
+animationData = {
+  ".animation" : {
+    ".title" : [
+      {
+        tween: {opacity: 1, scale: 1, ease: Power1.easeInOut, force3D: false},
+        duration: 15,
+      },
+      {
+        tween: {x: -300, ease: Power1.easeInOut},
+        duration: 10,
+        offset: "-=5",
+      }
+    ],
+    ".description" : [
+      {
+        tween: {y: 0, x:-300, opacity: 1, ease: Power1.easeInOut},
+        duration: 10,
+      }
+    ]
+  },
 }
 
-//Scale
+const controller = new ScrollMagic.Controller();
 
-const scale = new TimelineLite()
+Object.entries(animationData).forEach(item => {
+  const [name, container] = item;
+  const timeline = new TimelineLite();
+  Object.entries(container).forEach(item => {
+    const [object, animations] = item;
+    animations.forEach(animation => {
+      timeline.to(object, animation.duration, animation.tween, animation.offset);
+    });
+  });
 
-scale.add(
-  TweenLite.to('.title' , 3, {
-    scale: 1,
-    ease: Power1.easeInOut,
-    force3D: false,
-    // delay: 1
+  new ScrollMagic.Scene({
+    triggerElement: name,
+    triggerHook: 0,
+    duration: "100%",
   })
-)
-
-const opacity = new TimelineLite()
-
-opacity.add(
-  TweenLite.to('.title' , 3, {
-    opacity: 1,
-    ease: Power1.easeInOut,
-  })
-)
-
-const controller = new ScrollMagic.Controller()
-
-const scene = new ScrollMagic.Scene({
-  triggerElement: '.title-animation',
-  triggerHook: 0,
-  duration: '100%'
-})
-.setTween(scale)
-.addTo(controller)
-.setPin('.title-animation')
-
-const scene2 = new ScrollMagic.Scene({
-  triggerElement: '.title-animation',
-  triggerHook: 0,
-  duration: '100%'
-})
-.setTween(opacity)
-.addTo(controller)
-
+    .setTween(timeline)
+    .setPin(name)
+    .addTo(controller);
+});

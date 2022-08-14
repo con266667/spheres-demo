@@ -9,6 +9,7 @@
 header {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
@@ -20,4 +21,9 @@ header {
   font-weight: 700;
   color: rgb(50, 149, 101);
   transform: scale(10);
+}
+
+.description {
+  opacity: 0;
+  transform: translate(-300px, 100px);
 }

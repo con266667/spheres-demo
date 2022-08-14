@@ -9,10 +9,32 @@
 .animation {
   height: 100vh;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.about {
+  height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Inter', sans-serif;
+}
+
+.education {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.education > .item {
+  opacity: 0;
 }
 
 .title {
@@ -22,9 +44,19 @@
   transform: scale(10);
 }
 
+.education > .title {
+  transform: translateY(-100px) scale(0.8);
+}
+
+.profile {
+  height: 50%;
+  opacity: 0;
+  transform: translateX(200px);
+  border-radius: 25px;
+}
+
 .description {
   opacity: 0;
-  transform: translate(-300px, 100px);
   font-size: 1.5rem;
   font-weight: 200;
 }

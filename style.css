@@ -25,6 +25,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+.background {
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+}
+
 .education {
   height: 100vh;
   display: flex;

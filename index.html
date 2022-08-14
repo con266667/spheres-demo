@@ -10,69 +10,78 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-
-    <div class="animation" data-animation="true">
-      <h1 class="title"
-        data-scale="1"
-        data-scale-duration="15"
-        data-opacity="1"
-        data-opacity-duration="15"
-        data-x="-200"
-        data-x-delay="20"
-        data-x-duration="15"
-      >Hi, I'm John</h1>
-      <img src="profile.jpg" class="profile"
-        data-opacity="1"
-        data-opacity-duration="15"
-        data-x="0"
-        data-x-duration="15"
-      >
-    </div>
-
-    <div class="about" data-animation="true">
-      <h1 class="title"
-        data-scale="1"
-        data-scale-duration="30"
-        data-opacity="1"
-        data-opacity-duration="30"
-        data-y="-200"
-        data-y-delay="20"
-        data-y-duration="30"
-      >I'm a web developer</h1>
-      <p class="description"
-        data-opacity="1"
-        data-opacity-duration="15"
-        data-y="-150"
-        data-y-delay="35"
-        data-y-duration="30"
+    <div class="background">
+      <div class="hello" data-animation="true">
+        <div
+          class="animation"
+          data-final-opacity="0"
+          data-final-y="-200"
         >
-        I'm a web developer with a passion for creating beautiful, responsive websites.
-      </p>
-    </div>
+          <h1 class="title"
+            data-scale="1"
+            data-scale-duration="15"
+            data-opacity="1"
+            data-opacity-duration="15"
+            data-x="-200"
+            data-x-delay="20"
+            data-x-duration="15"
+          >Hi, I'm John</h1>
+          <img src="profile.jpg" class="profile"
+            data-opacity="1"
+            data-opacity-duration="15"
+            data-x="0"
+            data-x-duration="15"
+          >
+        </div>
+      </div>
 
-    <div class="education" data-animation="true">
-      <h1 class="title"
-        data-scale="1"
-        data-scale-duration="15"
-        data-opacity="1"
-        data-opacity-duration="15"
-        data-y="-200"
-        data-y-duration="30"
-      >Education</h1>
-      <div class="item"
-        data-opacity="1"
-        data-opacity-duration="15"
-        data-y="-150"
-        data-y-duration="30"
-      >
-        <h2>
-          <span class="school">University of California, Irvine</span>
-          <span class="year">2019</span>
+      <div data-animation="true">
+        <div class="about">
+          <h1 class="title"
+            data-scale="1"
+            data-scale-duration="30"
+            data-opacity="1"
+            data-opacity-duration="30"
+            data-y="-200"
+            data-y-delay="20"
+            data-y-duration="30"
+          >I'm a web developer</h1>
+          <p class="description"
+            data-opacity="1"
+            data-opacity-duration="15"
+            data-y="-150"
+            data-y-delay="35"
+            data-y-duration="30"
+            >
+            I'm a web developer with a passion for creating beautiful, responsive websites.
+          </p>
+        </div>
+      </div>
 
-        </h2>
-        <p>
-          B.S. Computer Science
-        </p>
+      <div class="education" data-animation="true">
+        <h1 class="title"
+          data-scale="1"
+          data-scale-duration="15"
+          data-opacity="1"
+          data-opacity-duration="15"
+          data-y="-200"
+          data-y-duration="30"
+        >Education</h1>
+        <div class="item"
+          data-opacity="1"
+          data-opacity-duration="15"
+          data-y="-150"
+          data-y-duration="30"
+        >
+          <h2>
+            <span class="school">University of California, Irvine</span>
+            <span class="year">2019</span>
+
+          </h2>
+          <p>
+            B.S. Computer Science
+          </p>
+        </div>
       </div>
     </div>
     

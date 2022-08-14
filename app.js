@@ -1,43 +1,52 @@
-animationData = {
-  ".animation" : {
-    ".title" : [
-      {
-        tween: {opacity: 1, scale: 1, ease: Power1.easeInOut, force3D: false},
-        duration: 15,
-      },
-      {
-        tween: {x: -300, ease: Power1.easeInOut},
-        duration: 10,
-        offset: "-=5",
-      }
-    ],
-    ".description" : [
-      {
-        tween: {y: 0, x:-300, opacity: 1, ease: Power1.easeInOut},
-        duration: 10,
-      }
-    ]
-  },
-}
-
 const controller = new ScrollMagic.Controller();
 
-Object.entries(animationData).forEach(item => {
-  const [name, container] = item;
-  const timeline = new TimelineLite();
-  Object.entries(container).forEach(item => {
-    const [object, animations] = item;
-    animations.forEach(animation => {
-      timeline.to(object, animation.duration, animation.tween, animation.offset);
-    });
-  });
+const animationAttributes = [
+  "scale",
+  "opacity",
+  "x",
+  "y",
+];
 
+
+function addTimeline (element, timeline) {
   new ScrollMagic.Scene({
-    triggerElement: name,
-    triggerHook: 0,
-    duration: "100%",
+      triggerElement: element,
+      triggerHook: 0,
+      duration: "100%",
   })
-    .setTween(timeline)
-    .setPin(name)
-    .addTo(controller);
+      .setTween(timeline)
+      .setPin(element)
+      .addTo(controller);
+}
+
+function addTimelineElementAnimations (element, timeline) {
+  var prevDuration = 0;
+  animationAttributes.forEach(attribute => {
+    const attributeValue = element.dataset[attribute];
+    if (attributeValue) {
+      const duration = parseInt(element.dataset[`${attribute}Duration`]) || 0;
+      const delay = prevDuration - (parseInt(element.dataset[`${attribute}Delay`]) || 0);
+      timeline.to(element, duration, {[attribute]: attributeValue, ease: Power1.easeInOut, force3D: false}, delay < 0 ? `+=${delay}` : `-=${delay}`);
+      prevDuration = duration + delay;
+    }
+  }
+  );
+
+  if (Array.from(element.children).length > 0) {
+    Array.from(element.children).forEach(child => {
+      addTimelineElementAnimations(child, timeline);
+    }
+    );
+  }
+}
+
+document.querySelectorAll('[data-animation]')
+  .forEach(element => {
+    const timeline = new TimelineLite()
+    
+    Array.from(element.children).forEach(child => {
+      addTimelineElementAnimations(child, timeline);
+    });
+
+    addTimeline(element, timeline);
 });

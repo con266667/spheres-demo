@@ -18,7 +18,7 @@ function addTimeline (element, timeline, triggerHook, offset) {
   })
       .setTween(timeline)
       .setPin(element)
-      .addIndicators()
+      // .addIndicators()
       .addTo(controller);
 }
 

@@ -75,4 +75,3 @@ document.querySelectorAll('[data-animation]')
   }
 );
 
-document.querySelector(".scrollmagic-pin-spacer").classList.style.paddingTop = "0px";

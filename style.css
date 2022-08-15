@@ -6,14 +6,18 @@
   padding: 0;
 }
 
-html {
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+.background {
+  background-image: linear-gradient(to top, #d4fc79 0%, #96e6a1 100%);
+  position: fixed;
+  top: -50;
+  left: 0;
+  width: 100vw;
+  height: 105vh;
 }
 
 .animation {
   height: 100vh;
   width: 100vw;
-  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -21,34 +25,11 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-.about {
-  padding-top: 50vh;
-  height: 20vh;
-  width: 100vw;
-  position: fixed;
-  top: 1;
-  left: 0;
-  display: flex;
+.vertical {
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
 }
 
-/* .background {
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-} */
-
-.education {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
-}
-
-.education > .item {
+.item {
   opacity: 0;
 }
 
@@ -57,10 +38,6 @@ html {
   font-size: 4rem;
   font-weight: 700;
   transform: scale(10);
-}
-
-.education > .title {
-  transform: translateY(-100px) scale(0.8);
 }
 
 .profile {

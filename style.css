@@ -16,7 +16,17 @@
 }
 
 .circle {
-  border-radius: 100%;
+  /* background: radial-gradient(circle closest-side,#f00 0%,#f00 98%,rgba(0,0,0,0) 100%); */
+  /* clip-path: circle(); */
+  border-radius: 50%;
+  /* box-shadow: rgba(0, 0, 0, 1) 0px 300px 900px; */
+  position: absolute;
+  /* filter: blur(5000px); */
+}
+
+.circle-wrapper {
+  border-radius: 1000px;
+  overflow: hidden;
 }
 
 html, body {
@@ -33,6 +43,7 @@ html, body {
   align-items: center;
   font-family: 'Inter', sans-serif;
   color: white;
+  overflow: hidden;
 }
 
 .vertical {

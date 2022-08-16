@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      <div class="background"></div>
+      <div class="background">
+      </div>
 
       <div data-animation="true" class="animation">
         <h1
@@ -261,7 +262,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js"></script>
     <script src="app.js"></script>
-    <script src="animatedBackground.js"></script>
     <script>
       const newTimeline = new TimelineMax();
       newTimeline.to('.scroll', 1, {
@@ -270,5 +270,12 @@
         ease: Power2.easeOut
       });
     </script>
+    <script src="animatedBackground.js"></script>
+    <style>
+      .background {
+        background-color: black;
+      }
+    </style>
+    
   </body>
 </html>

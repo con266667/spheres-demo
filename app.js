@@ -11,7 +11,7 @@ const animationAttributes = [
 
 function addTimeline (element, timeline, triggerHook, offset) {
   new ScrollMagic.Scene({
-      triggerElement: element,
+      triggerElement: '.animation-trigger',
       triggerHook: triggerHook,
       offset: offset,
       duration: "100%",
@@ -62,9 +62,10 @@ function addFinalAnimations(element, timeline) {
   });
 }
 
+const timeline = new TimelineLite();
+
 document.querySelectorAll('[data-animation]')
   .forEach(element => {
-    const timeline = new TimelineLite();
     
     addStartAnimations(element, timeline);
     addFinalAnimations(element, timeline);

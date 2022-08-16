@@ -5,7 +5,7 @@ const animationAttributes = [
   "opacity",
   "x",
   "y",
-  "backgroundImage"
+  "backgroundImage",
 ];
 
 
@@ -22,17 +22,18 @@ function addTimeline (element, timeline, triggerHook, offset) {
       .addTo(controller);
 }
 
-function addAnimationsToTimeline (element, timeline, isFinal) {
+function addAnimationsToTimeline (element, timeline, isFinal, parent) {
   var prevDuration = 0;
 
   animationAttributes.forEach(attribute_raw => {
     var attribute = attribute_raw;
-    var attributeValue = element.dataset[attribute];
+
     if (isFinal) {
       attribute = 'final' + attribute.charAt(0).toUpperCase() + attribute.slice(1);
-      attributeValue = element.dataset[attribute];
     }
     
+    attributeValue = element.dataset[attribute];
+
     if (attributeValue !== undefined) {
       console.log(attribute);
       const duration = parseInt(element.dataset[`${attribute}Duration`]) || 10;
@@ -52,13 +53,13 @@ function addAnimationsToTimeline (element, timeline, isFinal) {
 
 function addStartAnimations(element, timeline) {
   Array.from(element.children).forEach(child => {
-    addAnimationsToTimeline(child, timeline, false);
+    addAnimationsToTimeline(child, timeline, false, element);
   });
 }
 
 function addFinalAnimations(element, timeline) {
   Array.from(element.children).forEach(child => {
-    addAnimationsToTimeline(child, timeline, true);
+    addAnimationsToTimeline(child, timeline, true, element);
   });
 }
 

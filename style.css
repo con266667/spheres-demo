@@ -147,7 +147,6 @@ li {
   opacity: 0;
   transform: translateY(200px);
   margin-bottom: 15px;
-  /* column */
 }
 
 li > .title {

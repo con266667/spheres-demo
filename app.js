@@ -11,14 +11,13 @@ const animationAttributes = [
 
 function addTimeline (element, timeline, triggerHook, offset) {
   new ScrollMagic.Scene({
-      triggerElement: element,
+      triggerElement: '.animation-trigger',
       triggerHook: triggerHook,
       offset: offset,
-      duration: "100%",
+      duration: "600%",
   })
       .setTween(timeline)
       .setPin(element)
-      // .addIndicators()
       .addTo(controller);
 }
 
@@ -35,9 +34,8 @@ function addAnimationsToTimeline (element, timeline, isFinal, parent) {
     attributeValue = element.dataset[attribute];
 
     if (attributeValue !== undefined) {
-      console.log(attribute);
-      const duration = parseInt(element.dataset[`${attribute}Duration`]) || 10;
-      const delay = prevDuration - (parseInt(element.dataset[`${attribute}Delay`]) || 0);
+      const duration = parseInt(element.dataset[`${attribute}Duration`]) || 15;
+      var delay = prevDuration - (parseInt(element.dataset[`${attribute}Delay`]) || 0);
       timeline.to(element, duration, {[attribute_raw]: attributeValue, ease: Power1.easeInOut, force3D: false}, delay < 0 ? `+=${delay}` : `-=${delay}`);
       prevDuration = duration + delay;
     }
@@ -63,9 +61,10 @@ function addFinalAnimations(element, timeline) {
   });
 }
 
+const timeline = new TimelineLite();
+
 document.querySelectorAll('[data-animation]')
   .forEach(element => {
-    const timeline = new TimelineLite();
     
     addStartAnimations(element, timeline);
     addFinalAnimations(element, timeline);
@@ -76,3 +75,5 @@ document.querySelectorAll('[data-animation]')
   }
 );
 
+let amountOfPages = document.getElementsByClassName("scrollmagic-pin-spacer").length;
+document.querySelector('.animation-trigger').style.height = "700vh";

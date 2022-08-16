@@ -11,7 +11,7 @@
   </head>
   <body>
       <div class="background"></div>
-      <div data-animation="true">
+      <div data-animation="true" class="animation">
         <div
           class="animation"
           data-final-opacity="0"
@@ -35,9 +35,8 @@
         </div>
       </div>
 
-      <div class="background-trigger-1"></div>
 
-      <div data-animation="true" class="animation" style="top: -900px;" id="page-1">
+      <div data-animation="true" class="animation" style="top: -100vh">
         <div class="animation vertical" data-final-opacity="0">
           <h1 class="title"
             data-scale="1"
@@ -60,7 +59,7 @@
         </div>
       </div>
 
-      <div data-animation="true" class="animation vertical" style="top: -1800px;" id="page-2">
+      <div data-animation="true" class="animation vertical" style="top: -200vh;" id="page-2">
           <h1 class="title"
             data-scale="1"
             data-scale-duration="15"
@@ -84,18 +83,50 @@
               B.S. Computer Science
             </p>
           </div>
+          <div class="item"
+            data-opacity="1"
+            data-opacity-duration="15"
+            data-y="-150"
+            data-y-duration="30"
+          >
+            <h2>
+              <span class="school">University of California, Irvine</span>
+              <span class="year">2019</span>
+
+            </h2>
+            <p>
+              B.S. Computer Science
+            </p>
+          </div>
+          <div class="item"
+            data-opacity="1"
+            data-opacity-duration="15"
+            data-y="-150"
+            data-y-duration="30"
+          >
+            <h2>
+              <span class="school">University of California, Irvine</span>
+              <span class="year">2019</span>
+
+            </h2>
+            <p>
+              B.S. Computer Science
+            </p>
+          </div>
       </div>
 
-      <div data-animation="true" class="animation vertical" style="top: -2700px;">
+      <div data-animation="true" class="animation vertical" style="top: -300vh;">
         <h1 class="title"
           data-scale="1"
           data-scale-duration="15"
           data-opacity="1"
           data-opacity-duration="15"
+          data-final-y="-200"
+          data-final-opacity="0"
         >Statement</h1>
     </div>
 
-    <div data-animation="true" class="animation images" style="top: -2700px;">
+    <div data-animation="true" class="animation images" style="top: -400vh;">
       <img src="A.jpg"
         data-opacity="1"
         data-opacity-duration="15"
@@ -129,13 +160,61 @@
       </div>
     </div>
 
-    <div data-animation="true" class="animation image-large" style="top: -3600px;">
+    <div data-animation="true" class="animation image-large" style="top: -500vh;">
       <img src="B.jpg"
         data-opacity="1"
         data-opacity-duration="15"
         data-final-y="-500"
         data-final-opacity="0"
       >
+    </div>
+
+    <div data-animation="true" class="animation vertical" style="top: -600vh;">
+      <h1 class="title"
+        data-scale="1"
+        data-scale-duration="15"
+        data-opacity="1"
+        data-opacity-duration="15"
+        data-final-opacity="0"
+      >List</h1>
+      <ul>
+        <li
+          data-opacity="1"
+          data-opacity-duration="15"
+          data-y="0"
+          data-y-duration="15"
+          data-final-y="-200"
+          data-final-y-duration="15"
+          data-final-opacity="0"
+          data-final-opacity-duration="15"
+        >
+          <span class="title">Item 1</span>
+        </li>
+        <li
+          data-opacity="1"
+          data-opacity-duration="15"
+          data-y="0"
+          data-y-duration="15"
+          data-final-y="-200"
+          data-final-y-duration="15"
+          data-final-opacity="0"
+          data-final-opacity-duration="15"
+        >
+          <span class="title">Item 2</span>
+        </li>
+        <li
+          data-opacity="1"
+          data-opacity-duration="15"
+          data-y="0"
+          data-y-duration="15"
+          data-final-y="-200"
+          data-final-y-duration="15"
+          data-final-opacity="0"
+          data-final-opacity-duration="15"
+        >
+          <span class="title">Item 3</span>
+        </li>
+      </ul>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>

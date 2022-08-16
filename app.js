@@ -11,7 +11,7 @@ const animationAttributes = [
 
 function addTimeline (element, timeline, triggerHook, offset) {
   new ScrollMagic.Scene({
-      triggerElement: '.animation-trigger',
+      triggerElement: element,
       triggerHook: triggerHook,
       offset: offset,
       duration: "100%",
@@ -62,10 +62,9 @@ function addFinalAnimations(element, timeline) {
   });
 }
 
-const timeline = new TimelineLite();
-
 document.querySelectorAll('[data-animation]')
   .forEach(element => {
+    const timeline = new TimelineLite();
     
     addStartAnimations(element, timeline);
     addFinalAnimations(element, timeline);
@@ -76,3 +75,12 @@ document.querySelectorAll('[data-animation]')
   }
 );
 
+
+// function resizeBodyHeight() {
+//   let amountOfPages = document.getElementsByClassName("scrollmagic-pin-spacer").length;
+//   // document.body.style.height = (window.innerHeight*(amountOfPages + 1))  + "px";
+//   document.body.style.height = (0)  + "px";
+// }
+
+// window.addEventListener('resize', resizeBodyHeight);
+// window.addEventListener('load', resizeBodyHeight);

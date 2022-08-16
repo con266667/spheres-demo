@@ -4,16 +4,9 @@
   padding: 0;
 }
 
-.animation-trigger {
-  height: 180vh;
-}
-
 .animation {
   height: 100vh;
   width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: row;
   justify-content: center;

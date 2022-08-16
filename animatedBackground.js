@@ -5,15 +5,8 @@ const color = Math.floor(Math.random() * 16777215).toString(16)
 bg.style.backgroundColor = '#' + color
 
 function randomPosition(width = 800, height = 800) {
-    var x,y;
-
-    if (isSafari) {
-        x = Math.random() * (window.innerWidth + 100) - 50
-        y = Math.random() * (window.innerHeight + 100) - 50
-    } else {
-        x = Math.random() * (window.innerWidth - width + 400) - (width + 200)
-        y = Math.random() * (window.innerHeight - height + 400) - (height + 200)
-    }
+    const x = Math.random() * (window.innerWidth + 100) - 50
+    const y = Math.random() * (window.innerHeight + 100) - 50
 
     return { 
         x:x, 
@@ -26,33 +19,15 @@ function start() {
         const circle = document.createElement('div')
         circle.classList.add('circle')
         
-        var width, height;
-
-        if (isSafari) {
-            width = Math.random() * (700 - 400) + 400
-            height = Math.random() * (700 - 400) + 400
-        } else {
-            width = Math.random() * (900 - 700) + 700
-            height = Math.random() * (900 - 700) + 700
-        }
+        const width = Math.random() * (700 - 400) + 400
+        const height = Math.random() * (700 - 400) + 400
         const color = Math.floor(Math.random() * 16777215).toString(16)
-        // circle.style.backgroundColor = `#${color}`
         circle.style.backgroundColor = 'transparent'
 
-        if (isSafari) {
-            circle.style.width = '0.1px'
-            circle.style.height = '0.1px'
-        } else {
-            circle.style.width = `${width}px`
-            circle.style.height = `${height}px`
-        }
+        circle.style.width = '0.1px'
+        circle.style.height = '0.1px'
 
-        if (isSafari) {
-            circle.style.boxShadow = `0 0 ${height}px ${width}px #${color}`
-        } else {
-            circle.style.boxShadow = `#${color} ${width}px ${height}px 15000px`
-            circle.style.opacity = 0.3
-        }
+        circle.style.boxShadow = `0 0 ${height}px ${width}px #${color}`
 
         const randomXY = randomPosition(width, height);
 
@@ -77,4 +52,6 @@ function start() {
     }
 }
 
-window.onload = start()
+if (isSafari) {
+    start()
+}

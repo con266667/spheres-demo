@@ -7,13 +7,29 @@
 }
 
 .background {
-  /* background-image: linear-gradient(to top, #d4fc79 0%, #96e6a1 100%); */
+  /* background-color: #2ecc71; */
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+
   position: fixed;
-  /* top: -50; */
   left: 0;
   width: 100vw;
   height: 100vh;
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 .circle {
   /* background: radial-gradient(circle closest-side,#f00 0%,#f00 98%,rgba(0,0,0,0) 100%); */
